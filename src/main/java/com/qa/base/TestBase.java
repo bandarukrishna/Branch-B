@@ -1,5 +1,10 @@
 package com.qa.base;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -93,4 +98,17 @@ public class TestBase {
 	    String strDate = sdfDate.format(now);
 	    return strDate;
 	}	
+    public static void fileUploadRobot(String file) throws AWTException {
+        StringSelection str = new StringSelection(file);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+        Robot rb = new Robot();
+        rb.keyPress(KeyEvent.VK_CONTROL);
+        rb.keyPress(KeyEvent.VK_V);
+        rb.keyRelease(KeyEvent.VK_CONTROL);
+        rb.keyRelease(KeyEvent.VK_V);
+        // for pressing and releasing Enter
+        rb.keyPress(KeyEvent.VK_ENTER);
+        rb.keyRelease(KeyEvent.VK_ENTER);
+        System.out.println("file uploaded");
+    }
 }

@@ -1,4 +1,4 @@
-Feature: mercurytours Feature
+ Feature: mercurytours Feature
 @test
   Scenario Outline: Registeration Test Scenario
     Given user is already on landing Page
