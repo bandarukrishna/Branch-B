@@ -1,6 +1,7 @@
 package com.qa.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,6 +11,7 @@ public class LandingPage extends TestBase {
 
 
 @FindBy(xpath="//a[text()='REGISTER']")
+@CacheLookup
 WebElement register;
 
 public LandingPage() {

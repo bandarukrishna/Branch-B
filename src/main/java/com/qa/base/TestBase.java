@@ -14,7 +14,11 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import com.qa.util.TestUtil;
 import com.qa.util.WebEventListener;
@@ -46,8 +50,10 @@ public class TestBase {
 		if(browserName.equals("chrome")){
 			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\krishna\\eclipse-workspace1\\Cucumber\\src\\test\\resources\\Drivers\\chromedriver.exe");	
 			WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver(); 
-			//HtmlUnitDriver HDriver = new HtmlUnitDriver();
+			driver = new ChromeDriver(); 
+			//WebDriverManager.phantomjs().setup();
+			//	
+			//driver = new PhantomJSDriver();
 		
 		//	DesiredCapabilities dr=DesiredCapabilities.chrome();
 	       // dr.setBrowserName("chrome");
@@ -77,7 +83,28 @@ public class TestBase {
 		
 	}
 	
+	public static void initialization(String mailurl, String browName)  {
+		
+		if(browName.equals("chrome")){
+			
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver(); 
+		}
+		else if(browName.equals("FF")){
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver(); 
+			
+		}
 	
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		
+		driver.get(mailurl);
+		
+	}
 	
 	public static void close_browser()
 	{
@@ -98,17 +125,5 @@ public class TestBase {
 	    String strDate = sdfDate.format(now);
 	    return strDate;
 	}	
-    public static void fileUploadRobot(String file) throws AWTException {
-        StringSelection str = new StringSelection(file);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
-        Robot rb = new Robot();
-        rb.keyPress(KeyEvent.VK_CONTROL);
-        rb.keyPress(KeyEvent.VK_V);
-        rb.keyRelease(KeyEvent.VK_CONTROL);
-        rb.keyRelease(KeyEvent.VK_V);
-        // for pressing and releasing Enter
-        rb.keyPress(KeyEvent.VK_ENTER);
-        rb.keyRelease(KeyEvent.VK_ENTER);
-        System.out.println("file uploaded");
-    }
+
 }

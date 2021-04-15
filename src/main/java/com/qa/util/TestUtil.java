@@ -1,110 +1,143 @@
 package com.qa.util;
-
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import com.google.common.io.Files;
 import com.qa.base.TestBase;
-
 public class TestUtil extends TestBase {
+    public static long PAGE_LOAD_TIMEOUT = 20;
+    public static long IMPLICIT_WAIT = 20;
+    public static String TESTDATA_SHEET_PATH = "";
+    static Workbook book;
+    static Sheet sheet;
+    static JavascriptExecutor js;
+    
+    public void switchToFrame() {
+        driver.switchTo().frame("mainpanel");
+    }
 
-	public static long PAGE_LOAD_TIMEOUT = 20;
-	public static long IMPLICIT_WAIT = 20;
+    public static Object[][] getTestData(String sheetName) {
+        FileInputStream file = null;
+        try {
+            file = new FileInputStream(TESTDATA_SHEET_PATH);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            book = WorkbookFactory.create(file);
+        } catch (InvalidFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        sheet = book.getSheet(sheetName);
+        Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+        // System.out.println(sheet.getLastRowNum() + "--------" +
+        // sheet.getRow(0).getLastCellNum());
+        for (int i = 0; i < sheet.getLastRowNum(); i++) {
+            for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
+                data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+                // System.out.println(data[i][k]);
+            }
+        }
+        return data;
+    }
 
-	public static String TESTDATA_SHEET_PATH = "";
+    public static String takeScreenShot() throws IOException {
+        String screenshotloc;
+        File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File destinationPath = new File(System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png");
+        screenshotloc = destinationPath.getAbsolutePath().toString();
+        System.out.println("Sslocation: " + screenshotloc.toString());
+        Files.copy(sourcePath, destinationPath.getAbsoluteFile());
+        return screenshotloc;
+    }
 
-	static Workbook book;
-	static Sheet sheet;
-	static JavascriptExecutor js;
+    public static void readingWebtable(String searchitem, WebElement table) {
+        List < WebElement > rows = table.findElements(By.tagName("tr"));
+        for (WebElement row: rows) {
+            List < WebElement > cells = row.findElements(By.tagName("td"));
+            for (WebElement cell: cells) {
+                String k = cell.getText();
+                if (k.equals(searchitem)) {
+                    System.out.println("Cell: " + cell);
+                    System.out.println("Cell value: " + k);
+                    cell.click();
+                    break;
+                }
+            }
+        }
+    }
+    public static void readingWebtable1(String searchitem, WebElement table) {
+        table.findElements(By.tagName("tr")).stream().collect(Collectors.toList())
+            .forEach(x -> x.findElements(By.tagName("td"))
+                .stream().filter(y -> y.getText().equals(searchitem)).findFirst().get().click());
+    }
 
-	public void switchToFrame() {
-		driver.switchTo().frame("mainpanel");
-	}
-
-	public static Object[][] getTestData(String sheetName) {
-		FileInputStream file = null;
-		try {
-			file = new FileInputStream(TESTDATA_SHEET_PATH);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
-			book = WorkbookFactory.create(file);
-		} catch (InvalidFormatException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		sheet = book.getSheet(sheetName);
-		Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
-		// System.out.println(sheet.getLastRowNum() + "--------" +
-		// sheet.getRow(0).getLastCellNum());
-		for (int i = 0; i < sheet.getLastRowNum(); i++) {
-			for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
-				data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
-				// System.out.println(data[i][k]);
-			}
-		}
-		return data;
-	}
-
-	 public static  String takeScreenShot() throws IOException {
-			
-		 String screenshotloc;
-			
-			 File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		     File destinationPath = new File(System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png");
-			 screenshotloc=destinationPath.getAbsolutePath().toString();
-			 System.out.println("Sslocation: "+screenshotloc.toString());
-			 Files.copy(sourcePath, destinationPath.getAbsoluteFile());   	
-		return screenshotloc;
-		
-
-	 }
-public static void runTimeInfo(String messageType, String message) throws InterruptedException {
-		js = (JavascriptExecutor) driver;
-		// Check for jQuery on the page, add it if need be
-		js.executeScript("if (!window.jQuery) {"
-				+ "var jquery = document.createElement('script'); jquery.type = 'text/javascript';"
-				+ "jquery.src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js';"
-				+ "document.getElementsByTagName('head')[0].appendChild(jquery);" + "}");
-		Thread.sleep(5000);
-
-		// Use jQuery to add jquery-growl to the page
-		js.executeScript("$.getScript('https://the-internet.herokuapp.com/js/vendor/jquery.growl.js')");
-
-		// Use jQuery to add jquery-growl styles to the page
-		js.executeScript("$('head').append('<link rel=\"stylesheet\" "
-				+ "href=\"https://the-internet.herokuapp.com/css/jquery.growl.css\" " + "type=\"text/css\" />');");
-		Thread.sleep(5000);
-
-		// jquery-growl w/ no frills
-		js.executeScript("$.growl({ title: 'GET', message: '/' });");
-//'"+color+"'"
-		if (messageType.equals("error")) {
-			js.executeScript("$.growl.error({ title: 'ERROR', message: '"+message+"' });");
-		}else if(messageType.equals("info")){
-			js.executeScript("$.growl.notice({ title: 'Notice', message: 'your notice message goes here' });");
-		}else if(messageType.equals("warning")){
-			js.executeScript("$.growl.warning({ title: 'Warning!', message: 'your warning message goes here' });");
-		}else
-			System.out.println("no error message");
-		// jquery-growl w/ colorized output
-//		js.executeScript("$.growl.error({ title: 'ERROR', message: 'your error message goes here' });");
-//		js.executeScript("$.growl.notice({ title: 'Notice', message: 'your notice message goes here' });");
-//		js.executeScript("$.growl.warning({ title: 'Warning!', message: 'your warning message goes here' });");
-		Thread.sleep(5000);
-	}
-
+    public static void readingtable(String searchitem, WebElement table) {
+        List < WebElement > rows = driver.findElements(By.xpath("//table[starts-with(@id,':2')]//tbody//tr"));
+        int rowNum = rows.size();
+        List < WebElement > cols = driver.findElements(By.xpath("//table[starts-with(@id,':2')]//tbody//tr[1]//td"));
+        int colNum = cols.size();
+        for (int i = 1; i <= rowNum; i++) {
+            String s = driver.findElement(By.xpath("//table[starts-with(@id,':2')]//tbody//tr[" + i + "]//td[4]")).getText();
+            System.out.println(s);
+            if (s.equals(searchitem)); {
+                driver.findElement(By.xpath("//table[starts-with(@id,':2')]//tbody//tr[" + i + "]//td[4]")).click();
+                break;
+            }
+        }
+    }
+    public static void readingWebtableWrittingIntoExcel(String searchitem, WebElement table) {
+        List < WebElement > rows = table.findElements(By.tagName("tr"));
+        for (WebElement row: rows) {
+            List < WebElement > cells = row.findElements(By.tagName("td"));
+            for (WebElement cell: cells) {
+                String k = cell.getText();    
+            }
+        }
+    }
+    public static void switchToWindow() {
+        String s = driver.getWindowHandle();
+        Set < String > winhandles = driver.getWindowHandles();
+        Iterator < String > itr = winhandles.iterator();
+        while (itr.hasNext()) {
+            String childWindow = itr.next();
+            if (!s.equals(childWindow)); {
+                driver.switchTo().window(childWindow);
+            }
+        }
+    }
+    public static void fileUploadRobot(String file) throws AWTException {
+        StringSelection str = new StringSelection(file);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+        Robot rb = new Robot();
+        rb.keyPress(KeyEvent.VK_CONTROL);
+        rb.keyPress(KeyEvent.VK_V);
+        rb.keyRelease(KeyEvent.VK_CONTROL);
+        rb.keyRelease(KeyEvent.VK_V);
+        // for pressing and releasing Enter
+        rb.keyPress(KeyEvent.VK_ENTER);
+        rb.keyRelease(KeyEvent.VK_ENTER);
+        System.out.println("file uploaded");
+    }
 }
