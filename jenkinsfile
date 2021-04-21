@@ -14,8 +14,10 @@ stage('Test')
 steps{
 echo "Testing the Project.........."
 bat "mvn test"
-echo "Report generation the Project.........."
+echo "Cucumber Report generation the Project.........."
 cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+echo "HTML Report generation the Project.........."
+publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 }
 }
 
