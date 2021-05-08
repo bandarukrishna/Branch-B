@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\krish\AppData\Local\Temp\testng-eclipse--1417284732\testng-customsuite.xml</span>
+                    <span>C:\Users\krish\AppData\Local\Temp\testng-eclipse--204625481\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -61,7 +61,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Default_suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="emailAutomation.emailtest" class="method navigator-link" hash-for-method="mailTextread">mailTextread</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.qa.runner.TestRunner" class="method navigator-link" hash-for-method="feature(mercurytours Feature)">feature(mercurytours Feature)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,21 +122,18 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">emailAutomation.emailtest</span>
+              <span class="class-name">com.qa.runner.TestRunner</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="mailTextread">
-                  </a> <!-- mailTextread -->
-                  <span class="method-name">mailTextread</span>
-                  <div class="stack-trace">java.util.NoSuchElementException: No value present
-	at java.base/java.util.Optional.get(Optional.java:141)
-	at com.qa.util.TestUtil.lambda$0(TestUtil.java:135)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at com.qa.util.TestUtil.readingWebtable1(TestUtil.java:134)
-	at emailAutomation.emailReading.loginEmail(emailReading.java:42)
-	at emailAutomation.emailtest.mailTextread(emailtest.java:14)
+                  <a name="feature(mercurytours Feature)">
+                  </a> <!-- feature(mercurytours Feature) -->
+                  <span class="method-name">feature</span>
+                  <span class="parameters">(mercurytours Feature)</span>
+                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at com.qa.runner.TestRunner.feature(TestRunner.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -165,8 +162,14 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)
+	at stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)
+	at ✽.When user clicks on registerlink(Features/login.feature:5)
 
 </div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Feature)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -174,7 +177,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\krish\AppData\Local\Temp\testng-eclipse--1417284732\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\krish\AppData\Local\Temp\testng-eclipse--204625481\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -183,7 +186,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;emailAutomation.emailtest&quot;/&gt;
+      &lt;class name=&quot;com.qa.runner.TestRunner&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -207,6 +210,14 @@
             <span class="header-content">Groups for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">cucumber</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">feature</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Default_suite" class="panel">
@@ -225,14 +236,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'mailTextread')
-data.setCell(0, 2, 'emailAutomation.emailtest')
-data.setCell(0, 3, 38446);
+data.setCell(0, 1, 'feature')
+data.setCell(0, 2, 'com.qa.runner.TestRunner')
+data.setCell(0, 3, 4287);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 38 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -258,13 +269,21 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">emailAutomation.emailtest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.qa.runner.TestRunner</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpClass</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">mailTextread</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-name">feature(mercurytours Feature)</span>
+                <span class="method-start">1582 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">5882 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

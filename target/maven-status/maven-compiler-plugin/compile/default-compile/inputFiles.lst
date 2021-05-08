@@ -1,7 +1,9 @@
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\base\TestBase.java
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\util\Log.java
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\pages\RegisterPage.java
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\util\TestUtil.java
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\pages\LandingPage.java
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\ExtentReportListener\Listerner.java
-C:\Users\krishna\eclipse-workspace1\Cucumber\src\main\java\com\qa\util\WebEventListener.java
+C:\Users\krish\Branch-B\src\main\java\com\qa\base\TestBase.java
+C:\Users\krish\Branch-B\src\main\java\emailAutomation\emailReading.java
+C:\Users\krish\Branch-B\src\main\java\fileupload\uploadingfiles.java
+C:\Users\krish\Branch-B\src\main\java\com\qa\pages\RegisterPage.java
+C:\Users\krish\Branch-B\src\main\java\com\qa\util\Log.java
+C:\Users\krish\Branch-B\src\main\java\com\qa\pages\LandingPage.java
+C:\Users\krish\Branch-B\src\main\java\com\qa\util\TestUtil.java
+C:\Users\krish\Branch-B\src\main\java\emailAutomation\emailtest.java
+C:\Users\krish\Branch-B\src\main\java\com\qa\util\WebEventListener.java

@@ -9,17 +9,13 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">38,500</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">6,969</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">emailAutomation.emailtest</td><td><a href="#m0">mailTextread</a></td><td rowspan="1">1617545034982</td><td rowspan="1">38446</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.qa.runner.TestRunner</td><td><a href="#m0">feature</a></td><td rowspan="1">1618678073336</td><td rowspan="1">4287</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">emailAutomation.emailtest#mailTextread</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.util.NoSuchElementException: No value present
-	at java.base/java.util.Optional.get(Optional.java:141)
-	at com.qa.util.TestUtil.lambda$0(TestUtil.java:135)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at com.qa.util.TestUtil.readingWebtable1(TestUtil.java:134)
-	at emailAutomation.emailReading.loginEmail(emailReading.java:42)
-	at emailAutomation.emailtest.mailTextread(emailtest.java:14)
+<h2>Default test</h2><h3 id="m0">com.qa.runner.TestRunner#feature</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>mercurytours Feature</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">cucumber.runtime.CucumberException: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at com.qa.runner.TestRunner.feature(TestRunner.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -48,6 +44,10 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)
+	at stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)
+	at ✽.When user clicks on registerlink(Features/login.feature:5)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

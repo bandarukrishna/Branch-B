@@ -8,8 +8,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -29,8 +38,7 @@ public class TestUtil extends TestBase {
     public static String TESTDATA_SHEET_PATH = "";
     static Workbook book;
     static Sheet sheet;
-    static JavascriptExecutor js;
-    
+    static JavascriptExecutor js; 
     public void switchToFrame() {
         driver.switchTo().frame("mainpanel");
     }
@@ -140,4 +148,5 @@ public class TestUtil extends TestBase {
         rb.keyRelease(KeyEvent.VK_ENTER);
         System.out.println("file uploaded");
     }
+
 }

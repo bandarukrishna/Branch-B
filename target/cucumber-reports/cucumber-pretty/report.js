@@ -164,15 +164,16 @@ formatter.match({
   "location": "LandingPageTest.user_is_already_on_landing_Page()"
 });
 formatter.result({
-  "duration": 26029820500,
+  "duration": 3161364900,
   "status": "passed"
 });
 formatter.match({
   "location": "RegisterPageTest.user_clicks_on_registerlink()"
 });
 formatter.result({
-  "duration": 4317416700,
-  "status": "passed"
+  "duration": 48094700,
+  "error_message": "java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader \u0027app\u0027)\r\n\tat com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)\r\n\tat stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)\r\n\tat ✽.When user clicks on registerlink(Features/login.feature:5)\r\n",
+  "status": "failed"
 });
 formatter.match({
   "arguments": [
@@ -196,8 +197,7 @@ formatter.match({
   "location": "RegisterPageTest.user_enters_contact_information_and_and_and(String,String,String,String)"
 });
 formatter.result({
-  "duration": 2456506300,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -221,8 +221,7 @@ formatter.match({
   "location": "RegisterPageTest.user_enters_mailing_address_information_and_and_and_and(String,String,String,String)"
 });
 formatter.result({
-  "duration": 1920937700,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -242,14 +241,12 @@ formatter.match({
   "location": "RegisterPageTest.user_enters_user_information_and_and(String,String,String)"
 });
 formatter.result({
-  "duration": 3129390500,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "location": "RegisterPageTest.user_closes_the_browser()"
 });
 formatter.result({
-  "duration": 1459077100,
-  "status": "passed"
+  "status": "skipped"
 });
 });

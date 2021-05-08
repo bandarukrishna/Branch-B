@@ -2,24 +2,34 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-04T19:33:54 IST" name="Default suite" finished-at="2021-04-04T19:34:33 IST" duration-ms="38500">
+  <suite started-at="2021-04-17T22:17:51 IST" name="Default suite" finished-at="2021-04-17T22:17:58 IST" duration-ms="6969">
     <groups>
+      <group name="cucumber">
+        <method signature="TestRunner.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.qa.runner.TestRunner@5afa3c9]" name="feature" class="com.qa.runner.TestRunner"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-04-04T19:33:54 IST" name="Default test" finished-at="2021-04-04T19:34:33 IST" duration-ms="38500">
-      <class name="emailAutomation.emailtest">
-        <test-method signature="mailTextread()[pri:0, instance:emailAutomation.emailtest@25ce9dc4]" started-at="2021-04-04T19:33:54 IST" name="mailTextread" finished-at="2021-04-04T19:34:33 IST" duration-ms="38446" status="FAIL">
-          <exception class="java.util.NoSuchElementException">
+    <test started-at="2021-04-17T22:17:51 IST" name="Default test" finished-at="2021-04-17T22:17:58 IST" duration-ms="6969">
+      <class name="com.qa.runner.TestRunner">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.qa.runner.TestRunner@5afa3c9]" started-at="2021-04-17T22:17:51 IST" name="setUpClass" finished-at="2021-04-17T22:17:52 IST" duration-ms="1216" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.qa.runner.TestRunner@5afa3c9]" started-at="2021-04-17T22:17:53 IST" name="feature" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-04-17T22:17:57 IST" duration-ms="4287" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[mercurytours Feature]]>
+              </value>
+            </param>
+          </params>
+          <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[No value present]]>
+              <![CDATA[java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader 'app')]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.util.NoSuchElementException: No value present
-at java.base/java.util.Optional.get(Optional.java:141)
-at com.qa.util.TestUtil.lambda$0(TestUtil.java:135)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at com.qa.util.TestUtil.readingWebtable1(TestUtil.java:134)
-at emailAutomation.emailReading.loginEmail(emailReading.java:42)
-at emailAutomation.emailtest.mailTextread(emailtest.java:14)
+              <![CDATA[cucumber.runtime.CucumberException: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader 'app')
+at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+at com.qa.runner.TestRunner.feature(TestRunner.java:48)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -48,13 +58,21 @@ at org.testng.TestNG.run(TestNG.java:1037)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader 'app')
+at com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)
+at stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)
+at ✽.When user clicks on registerlink(Features/login.feature:5)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.util.NoSuchElementException -->
+          </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- mailTextread -->
-      </class> <!-- emailAutomation.emailtest -->
+        </test-method> <!-- feature -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.qa.runner.TestRunner@5afa3c9]" started-at="2021-04-17T22:17:57 IST" name="tearDownClass" finished-at="2021-04-17T22:17:58 IST" duration-ms="1038" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.qa.runner.TestRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

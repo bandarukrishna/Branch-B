@@ -1,7 +1,9 @@
-com\qa\ExtentReportListener\Listerner.class
+fileupload\uploadingfiles.class
 com\qa\util\TestUtil.class
 com\qa\pages\RegisterPage.class
 com\qa\util\Log.class
+emailAutomation\emailReading.class
+emailAutomation\emailtest.class
 com\qa\pages\LandingPage.class
 com\qa\base\TestBase.class
 com\qa\util\WebEventListener.class

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Apr 04 19:33:54 IST 2021</td>
+<td>Started on:</td><td>Sat Apr 17 22:17:51 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>38 seconds (38500 ms)</td>
+<tr><td>Total time:</td><td>6 seconds (6969 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,14 +75,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='emailAutomation.emailtest.mailTextread()'><b>mailTextread</b><br>Test class: emailAutomation.emailtest</td>
-<td><div><pre>java.util.NoSuchElementException: No value present
-	at java.base/java.util.Optional.get(Optional.java:141)
-	at com.qa.util.TestUtil.lambda$0(TestUtil.java:135)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at com.qa.util.TestUtil.readingWebtable1(TestUtil.java:134)
-	at emailAutomation.emailReading.loginEmail(emailReading.java:42)
-	at emailAutomation.emailtest.mailTextread(emailtest.java:14)
+<td title='com.qa.runner.TestRunner.feature()'><b>feature</b><br>Test class: com.qa.runner.TestRunner<br>Test method: Runs Cucumber Feature<br>Parameters: mercurytours Feature</td>
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at com.qa.runner.TestRunner.feature(TestRunner.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -111,14 +107,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace643587433", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace643587433'><pre>java.util.NoSuchElementException: No value present
-	at java.base/java.util.Optional.get(Optional.java:141)
-	at com.qa.util.TestUtil.lambda$0(TestUtil.java:135)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at com.qa.util.TestUtil.readingWebtable1(TestUtil.java:134)
-	at emailAutomation.emailReading.loginEmail(emailReading.java:42)
-	at emailAutomation.emailtest.mailTextread(emailtest.java:14)
+Caused by: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)
+	at stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)
+	at ?.When user clicks on registerlink(Features/login.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace779809646", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace779809646'><pre>cucumber.runtime.CucumberException: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at com.qa.runner.TestRunner.feature(TestRunner.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -147,9 +143,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader &apos;app&apos;)
+	at com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)
+	at stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)
+	at ?.When user clicks on registerlink(Features/login.feature:5)
 </pre></div></td>
-<td>38</td>
-<td>emailAutomation.emailtest@25ce9dc4</td></tr>
+<td>4</td>
+<td>com.qa.runner.TestRunner@5afa3c9</td></tr>
 </table><p>
 </body>
 </html>

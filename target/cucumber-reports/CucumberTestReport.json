@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 26029820500,
+              "duration": 3161364900,
               "status": "passed"
             },
             "line": 4,
@@ -24,8 +24,9 @@
           },
           {
             "result": {
-              "duration": 4317416700,
-              "status": "passed"
+              "duration": 48094700,
+              "error_message": "java.lang.ClassCastException: class org.openqa.selenium.htmlunit.HtmlUnitDriver cannot be cast to class org.openqa.selenium.TakesScreenshot (org.openqa.selenium.htmlunit.HtmlUnitDriver and org.openqa.selenium.TakesScreenshot are in unnamed module of loader \u0027app\u0027)\r\n\tat com.qa.util.TestUtil.takeScreenShot(TestUtil.java:67)\r\n\tat stepDefinitions.RegisterPageTest.user_clicks_on_registerlink(RegisterPageTest.java:30)\r\n\tat ✽.When user clicks on registerlink(Features/login.feature:5)\r\n",
+              "status": "failed"
             },
             "line": 5,
             "name": "user clicks on registerlink",
@@ -36,8 +37,7 @@
           },
           {
             "result": {
-              "duration": 2456506300,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 6,
             "name": "user enters contact information \"krishna\" and \"bandaru\" and \"9874564123\" and \"kri124@gmail.com\"",
@@ -72,8 +72,7 @@
           },
           {
             "result": {
-              "duration": 1920937700,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 7,
             "name": "user enters mailing address information \"3-49\" and \"HYD\" and \"TS\" and \"87541\"",
@@ -108,8 +107,7 @@
           },
           {
             "result": {
-              "duration": 3129390500,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 8,
             "name": "user enters user information \"Test123\" and \"test@123\" and \"test@123\"",
@@ -139,8 +137,7 @@
           },
           {
             "result": {
-              "duration": 1459077100,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 9,
             "name": "user closes the browser",

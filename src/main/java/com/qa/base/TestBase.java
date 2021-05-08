@@ -66,6 +66,9 @@ public class TestBase {
 			//Selenium s=new WebDriverBackedSelenium(driver,"xyz");
 			
 		}
+		else {
+			 driver = new HtmlUnitDriver();
+		}
 		
 		/*
 		e_driver = new EventFiringWebDriver(driver);
